@@ -1,0 +1,490 @@
+/* Prevent font scaling when switching orientations */
+html {
+    -webkit-text-size-adjust: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    color: #A9B7C6;
+}
+
+li {
+    margin-left: 35px;
+}
+
+a {
+    color: #287BDE;
+}
+
+.systemMessage.green a {
+	color: #287BDE;
+}
+
+.systemMessage.red a {
+	color: #287BDE;
+}
+
+.systemMessage.yellow a {
+    color: #00418F;
+}
+
+table {
+    table-layout: fixed;
+}
+
+.historyLink {
+    width: 100%;
+    text-align: center;
+    background-color: #2B2B2B;
+    padding: 5px 0;
+    display: none;
+}
+
+/* Setup cases where borders should show between messages */
+.chatBlock {
+    border-collapse: collapse;
+}
+.chatBlock.them+.chatBlock.them, .scrollAnchor+.chatBlock.them, .preview+.chatBlock.them {
+    border-top: 1px solid #888888;
+}
+.chatBlock.them+.systemMessage.them {
+	border-top: 1px solid #888888;
+}
+.chatBlock.me+.chatBlock.me, .preview+.chatBlock.me {
+    border-top: 1px solid #888888;
+}
+.systemMessage.red+.systemMessage.red,
+.systemMessage.green+.systemMessage.green,
+.systemMessage.purple+.systemMessage.purple,
+.systemMessage.gray+.systemMessage.gray {
+    border-top: 1px solid #888888;
+}
+
+.systemMessage.yellow+.systemMessage.yellow {
+	border-top: 1px solid #888888;
+}
+.chatBlock .messageWrapper {
+    margin: 1px 10px 0 10px;
+}
+
+.chatBlock p.additionalLine {
+    margin-top: 5px;
+}
+
+.chatBlock p:nth-child(2) {
+    margin-top: 0;
+}
+
+.chatBlock td {
+    padding: 6px 0;
+}
+
+.fileBlock .icon {
+    margin: 2px 7px 4px 0;
+}
+
+.fileBlock .fileSize {
+    color: #666;
+}
+
+.linkBlock .icon {
+    height: 16px;
+    width: 16px;
+    margin: 2px 5px 4px 10px;
+    vertical-align: middle;
+    float: left;
+}
+
+.linkBlock .linkPreview {
+    margin-top: 5px;
+}
+
+.linkBlock .linkPreview:first-child {
+    margin-top: 0;
+}
+
+.linkBlock .linkPreview p {
+    margin: 0;
+    margin-left: 30px;
+}
+
+.me {
+    background-color: #2B2B2B;
+    border-top-color: #888888;
+}
+
+.them {
+    background-color: #2B2B2B;
+}
+
+.messageBlock img {
+    vertical-align: middle;
+}
+
+.messageBlock {
+}
+
+.me .messageBlock {
+    vertical-align: middle;
+    margin-bottom: 4px;
+}
+
+.messageBlock .monospace {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.messageBlock .msgText {
+    clear: left;
+}
+
+.messageBlock .msgText:nth-child(2) {
+    margin-top: 1px;
+}
+
+.messageBlock .msgTextError {
+    clear: left;
+    color: #ABABAB;
+    padding-left: 21px;
+    background: url('yield.png') no-repeat left center;
+}
+
+.messageBlock .msgTextError a {
+    color: #9999EE;
+}
+
+.messageBlock pre {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    margin: 5px 10px 0 10px;
+    white-space: pre-wrap;
+    tab-interval: 10px;
+}
+
+.messageBlock pre:first-child, .messageBlock pre:nth-child(2) {
+    margin-top: 0;
+}
+
+.messageBlock pre * {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.messageBlock .monospace * {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.messageBlock img[align='left'] {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.nameBlock {
+    vertical-align: top;
+    text-align: right;
+    background-color: #656565;
+}
+
+.nameBlock p {
+    color: #AAC4D0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+}
+
+.nameBlock a {
+    color: #AAC4D0;
+    text-decoration: none;
+}
+
+.me .nameBlock p {
+    color: #A9B7C6;
+}
+
+.me .nameBlock {
+    border-top-color: #888888;
+    background-color: #287BDE;
+}
+/* Add padding to make up for the missing borders on name/message blocks */
+.infoBlock p {
+    color: #999;
+    padding-left: 2px;
+}
+
+.infoBlock .messageBlock {
+    border-left: none;
+}
+
+.infoBlock .nameBlock {
+    background-color: inherit;
+    border: none;
+}
+/* Time blocks are different on the iPhone client - they are floated 'p' blocks instead of seprate table cells
+	Use p.timeBlock so we override the default info block p style */
+p.timeBlock {
+    white-space: nowrap;
+    color: #999;
+    text-align: right;
+    vertical-align: top;
+    float: right;
+    margin-top: 3px;
+}
+
+.systemMessage, .systemMessage.yellow {
+    background-color: #2b2b2b;
+}
+
+.systemMessage .nameBlock, .systemMessage.yellow .nameBlock {
+    background-color: #888888;
+    font-weight: bold;
+}
+
+.systemMessage .messageBlock {
+    margin-bottom: 1px;
+}
+
+.systemMessage.red {
+    background-color: #450505;
+}
+
+.systemMessage.red .nameBlock {
+    background-color: #402424;
+}
+
+.systemMessage.gray {
+    background-color: #000000;
+}
+
+.systemMessage.gray .nameBlock {
+    border-top-color: #757474;
+}
+
+.systemMessage.purple {
+    background-color: #4B007A;
+}
+
+.systemMessage.purple .nameBlock {
+    background-color: #6D5F75;
+}
+
+.systemMessage.green {
+    background-color: #145C00;
+}
+
+.systemMessage.green .nameBlock {
+    background-color: #5F7A57;
+}
+
+.systemMessage.yellow {
+    background-color: #656900;
+}
+
+.systemMessage.yellow .nameBlock {
+    background-color: #73724E;
+}
+
+.welcomeMessage {
+    background-color: #F5F8E7;
+    border-top-color: #888888;
+}
+
+.welcomeMessage .nameBlock {
+    color: #75510F;
+    border-top-color: #888888;
+}
+
+.welcomeMessage .messageBlock {
+    margin-bottom: 1px;
+}
+
+#chat_state {
+    padding: 3px 5px 4px 138px;
+    display: none;
+}
+
+.tooltip {
+    position: absolute;
+    display: none;
+    color: #fff;
+}
+
+.atTag {
+    display: inline-block;
+    padding: 0 3px;
+    border: 1px solid #D0D0D0;
+    background-color: #F5F5F5;
+    -webkit-border-radius: 4px;
+}
+
+.atTagMe {
+    color: #fff;
+    border: 1px solid #4783BF;
+    background: #3572b0;
+}
+
+.hexPreview {
+    -webkit-border-radius: 3px;
+    text-decoration: none;
+    border: 1px solid #999;
+    padding: 0 5px;
+    width: 15px;
+}
+
+.image {
+    margin: 5px 10px;
+}
+
+p.hiddenImage {
+    font-style: italic;
+    margin-left: 0;
+}
+
+p.hiddenImage a {
+    text-decoration: none;
+    color: #999;
+}
+
+p.hiddenImage a:hover {
+    text-decoration: underline;
+}
+
+.dateDivider {
+    text-align: center;
+    height: 1px;
+    background-color: #2b2b2b;
+    margin: 30px 0;
+}
+
+.dateDivider span {
+	background-color: #2b2b2b;
+	font-size: 16px;
+	color: #A9B7C6;
+	font-weight: normal;
+	position: relative;
+	top: -10px;
+	padding: 0 10px;
+}
+
+.xdateDivider:first-line {
+    background-color: #888888;
+}
+.xdateDivider:before {
+    content: "-_";
+    color: #888888;
+    background-color: #888888;
+}
+.xdateDivider:after {
+    content: "-_";
+    color: #888888;
+    background-color: #888888;
+}
+
+.chatDivider {
+    background-color: #3572b0;
+    color: #fff;
+    height: 2px;
+}
+
+.preview {
+    padding: 3px 0;
+    background-color: #2b2b2b;
+}
+.fileBlock .preview {
+    background-color: inherit;
+}
+
+.preview td {
+    padding: 0;
+    vertical-align: top;
+}
+.preview p {
+    margin: 0 10px;
+}
+
+.preview .hide, .fileBlock .hide {
+    padding: 5px 10px 10px 10px;
+    float: right;
+    margin: -2px 10px 0 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.linkImage {
+    float: left;
+    margin: 5px 10px;
+}
+
+
+.scrollAnchor {
+    display: block;
+    position: relative;
+    top: -42px;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 10;
+    padding: 3px;
+    background-color: #333;
+    border: 1px solid #000;
+    opacity: 0.9;
+    display: none;
+    border-radius: 6px;
+}
+
+.tooltip a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.unconfirmedIcon {
+    float: left;
+    padding-right: 5px;
+}
+
+.truncated {
+    max-height: __TRUNCATION_HEIGHT__;
+    text-overflow: clip;
+    overflow: hidden;
+    padding-left: 10px;
+}
+
+.untruncated {
+    padding-left: 10px;
+}
+
+.showHideLinkContainer {
+	margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.truncated+.showHideLinkContainer {
+    border-top: 1px solid #888888;
+}
+
+.prettyprinted {
+	background-color: #f6f6f6;
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	padding: 5px 10px;
+}
+.timeBlock ~ .prettyprinted {
+	margin-right: 100px;
+}
+
+#load_history_button {
+    padding: 9px 0 8px 0;
+    background-color: #dedede;
+    text-align: center;
+    display: none;
+}
+#loading_spinner {
+    padding: 9px 0 8px 0;
+    background-color: #dedede;
+    text-align: center;
+    display: none;
+}
